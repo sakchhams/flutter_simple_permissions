@@ -263,7 +263,7 @@ public class SwiftSimplePermissionsPlugin: NSObject, FlutterPlugin, CLLocationMa
     }
     
     private func getAudioPermissionStatus() -> AVAuthorizationStatus {
-        return AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
+        return AVCaptureDevice.authorizationStatus(forMediaType: AVMediaType.audio)
     }
     
     private func requestAudioPermission(result: @escaping FlutterResult) -> Void {
@@ -281,12 +281,12 @@ public class SwiftSimplePermissionsPlugin: NSObject, FlutterPlugin, CLLocationMa
     }
     
     private func getCameraPermissionStatus() -> AVAuthorizationStatus {
-        return AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+        return AVCaptureDevice.authorizationStatus(forMediaType: AVMediaType.video)
     }
     
     
     private func requestCameraPermission(result: @escaping FlutterResult) -> Void {
-        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+        AVCaptureDevice.requestAccess(forMediaType: AVMediaType.video) { response in
             result(response)
         }
     }
